@@ -12,8 +12,6 @@ const formatDate = (date: Date) =>
 ---
 
 <BaseLayout>
-  <h1>ブログ</h1>
-  <p class="intro">登山や散歩、技術、好きなもの、日々考えたことの記録です。</p>
   <ol class="post-list">
     {posts.map((post) => (
       <li>
@@ -21,7 +19,7 @@ const formatDate = (date: Date) =>
           <time datetime={post.data.publishedAt.toISOString()}>
             {formatDate(post.data.publishedAt)}
           </time>
-          <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+          <h3><a href={`/blog/${post.id}/`}>{post.data.title}</a></h3>
           <p>{post.data.description}</p>
           {post.data.draft && <span class="draft">下書き</span>}
         </article>

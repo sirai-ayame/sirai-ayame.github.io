@@ -14,6 +14,10 @@ describe("生成されたサイト", () => {
   it("ブログ一覧から公開記事へ移動できる", async () => {
     const html = await readOutput("blog/index.html");
 
+    expect(html).toContain("紫蕾アヤメのブログ");
+    expect(html).toContain('src="/images/avatar.png"');
+    expect(html).toContain('href="https://github.com/sirai-ayame"');
+    expect(html).toContain('href="https://x.com/sirai_ayame"');
     expect(html).toContain('href="/blog/hello/"');
     expect(html).toContain("はじめまして");
     expect(html).not.toContain("下書き");
@@ -22,6 +26,8 @@ describe("生成されたサイト", () => {
   it("記事に検索・共有用メタデータを出力する", async () => {
     const html = await readOutput("blog/hello/index.html");
 
+    expect(html).toContain('class="back-link" href="/blog"');
+    expect(html).toContain("ブログトップへ戻る");
     expect(html).toContain('rel="canonical" href="https://sirai-ayame.github.io/blog/hello/"');
     expect(html).toContain('property="og:type" content="article"');
     expect(html).toContain('property="article:published_time"');
