@@ -11,7 +11,8 @@
     "preview": "astro preview",
     "check": "astro check",
     "lint": "eslint .",
-    "test": "vitest run"
+    "test": "vitest run src",
+    "test:site": "npm run build && vitest run tests"
   },
   "dependencies": {
     "@astrojs/mdx": "^8.1.6",

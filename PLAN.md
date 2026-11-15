@@ -21,6 +21,7 @@
 - ESLint の推奨ルールと Astro / TypeScript 向けルールで静的解析する。
 - `astro check` で Astro と TypeScript の型検査を行う。
 - `astro build` で静的生成を確認する。
+- 生成後の HTML / XML を統合テストし、ルーティング、記事導線、メタデータ、404、RSS、サイトマップを検証する。
 
 ## デプロイ
 
