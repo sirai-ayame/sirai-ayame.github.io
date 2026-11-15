@@ -8,6 +8,8 @@
 - 公開記事一覧は公開日の降順にし、production build では下書きを除外する。
 - `/` は `/blog` へ静的にリダイレクトする。
 - 共通レイアウトとスタイルは依存を増やさず Astro/CSS で実装する。
+- 共通レイアウトで canonical URL、Open Graph、Twitter Card のメタデータを出力する。
+- Astro 公式統合でサイトマップを生成し、公開記事のみを RSS に含める。
 
 ## 検証
 

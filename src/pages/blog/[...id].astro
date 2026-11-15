@@ -17,7 +17,7 @@ const formatDate = (date: Date) =>
   new Intl.DateTimeFormat("ja-JP", { dateStyle: "long" }).format(date);
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
+<BaseLayout title={post.data.title} description={post.data.description} publishedAt={post.data.publishedAt}>
   <article class="post">
     <header>
       <p><time datetime={post.data.publishedAt.toISOString()}>{formatDate(post.data.publishedAt)}</time></p>
