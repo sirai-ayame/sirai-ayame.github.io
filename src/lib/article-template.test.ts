@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { createArticleTemplate, validateSlug } from "./article-template";
+import {
+  createArticlePath,
+  createArticleTemplate,
+  validateSlug,
+} from "./article-template";
 
 describe("validateSlug", () => {
   it.each(["first-post", "walk-2026", "mountain_trip"])('%s を受け入れる', (slug) => {
@@ -31,5 +35,11 @@ draft: true
     expect(createArticleTemplate('引用 "テスト"', "2026-11-15")).toContain(
       'title: "引用 \\"テスト\\""',
     );
+  });
+});
+
+describe("createArticlePath", () => {
+  it("記事とリソースをまとめるディレクトリ内のindex.mdxを返す", () => {
+    expect(createArticlePath("mountain-walk")).toBe("mountain-walk/index.mdx");
   });
 });

@@ -2,6 +2,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
+  createArticlePath,
   createArticleTemplate,
   validateSlug,
 } from "../src/lib/article-template.ts";
@@ -17,7 +18,7 @@ if (!slugArgument || !title) {
     const slug = validateSlug(slugArgument);
     const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
     const articlesDirectory = resolve(repositoryRoot, "src/content/blog");
-    const articlePath = resolve(articlesDirectory, `${slug}.mdx`);
+    const articlePath = resolve(articlesDirectory, createArticlePath(slug));
     const publishedAt = new Intl.DateTimeFormat("sv-SE", {
       timeZone: "Asia/Tokyo",
       year: "numeric",
@@ -25,7 +26,7 @@ if (!slugArgument || !title) {
       day: "2-digit",
     }).format(new Date());
 
-    await mkdir(articlesDirectory, { recursive: true });
+    await mkdir(dirname(articlePath), { recursive: true });
     await writeFile(
       articlePath,
       createArticleTemplate(title, publishedAt),

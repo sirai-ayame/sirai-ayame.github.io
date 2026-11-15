@@ -10,6 +10,10 @@ export function validateSlug(slug: string): string {
   return slug;
 }
 
+export function createArticlePath(slug: string): string {
+  return `${slug}/index.mdx`;
+}
+
 export function createArticleTemplate(title: string, publishedAt: string): string {
   return `---
 title: ${JSON.stringify(title)}
