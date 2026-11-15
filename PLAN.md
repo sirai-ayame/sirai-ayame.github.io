@@ -5,6 +5,7 @@
 - Astro の静的出力を使い、TypeScript は strict 設定にする。
 - ローカルと CI は Node.js 24 を標準とし、依存関係の最低要件として Node.js 22.23.4 以上を要求する。
 - ブログ記事は Astro Content Collections の `src/content/blog` に MDX で配置する。
+- `npm run new:post -- <slug> "記事タイトル"` で、既存ファイルを上書きせず下書きMDXを作成できるようにする。
 - 記事メタデータは `title`, `description`, `publishedAt` を必須とし、`updatedAt`, `draft` を任意とする。
 - 公開記事一覧は公開日の降順にし、production build では下書きを除外する。
 - `/` は `/blog` へ静的にリダイレクトする。
