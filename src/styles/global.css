@@ -9,6 +9,9 @@
 * { box-sizing: border-box; }
 body { margin: 0; }
 a { color: #6b3d78; text-underline-offset: 0.18em; }
+a:focus-visible { outline: .2rem solid #8a4f99; outline-offset: .2rem; border-radius: .1rem; }
+.skip-link { position: fixed; top: .5rem; left: .5rem; z-index: 1; padding: .5rem .75rem; color: #302936; background: #fff; transform: translateY(-200%); }
+.skip-link:focus { transform: translateY(0); }
 .site-header, main, footer { width: min(44rem, calc(100% - 2rem)); margin-inline: auto; }
 .site-header { padding-block: 1.5rem; border-bottom: 1px solid #e6dce9; }
 .site-header a { color: inherit; font-size: 1.1rem; font-weight: 700; text-decoration: none; }
@@ -22,5 +25,8 @@ h1, h2 { line-height: 1.3; }
 time { color: #716876; font-size: .9rem; }
 .draft { display: inline-block; padding: .1rem .5rem; background: #eee5f1; border-radius: .25rem; font-size: .8rem; }
 .post header { margin-bottom: 3rem; }
+.post-dates { display: flex; gap: 1.5rem; margin: 0; color: #716876; font-size: .9rem; }
+.post-dates div { display: flex; gap: .5rem; }
+.post-dates dd { margin: 0; }
 .post :is(h2, h3) { margin-top: 2.5rem; }
 @media (max-width: 36rem) { main { padding-block: 2rem; } }

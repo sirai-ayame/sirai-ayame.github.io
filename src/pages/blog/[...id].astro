@@ -17,10 +17,26 @@ const formatDate = (date: Date) =>
   new Intl.DateTimeFormat("ja-JP", { dateStyle: "long" }).format(date);
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description} publishedAt={post.data.publishedAt}>
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  publishedAt={post.data.publishedAt}
+  updatedAt={post.data.updatedAt}
+>
   <article class="post">
     <header>
-      <p><time datetime={post.data.publishedAt.toISOString()}>{formatDate(post.data.publishedAt)}</time></p>
+      <dl class="post-dates">
+        <div>
+          <dt>公開日</dt>
+          <dd><time datetime={post.data.publishedAt.toISOString()}>{formatDate(post.data.publishedAt)}</time></dd>
+        </div>
+        {post.data.updatedAt && (
+          <div>
+            <dt>更新日</dt>
+            <dd><time datetime={post.data.updatedAt.toISOString()}>{formatDate(post.data.updatedAt)}</time></dd>
+          </div>
+        )}
+      </dl>
       <h1>{post.data.title}</h1>
       <p class="lead">{post.data.description}</p>
     </header>
