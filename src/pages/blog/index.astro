@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getPublishedPosts } from "../../lib/posts";
+
+const posts = getPublishedPosts(
+  await getCollection("blog"),
+  import.meta.env.DEV,
+);
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat("ja-JP", { dateStyle: "long" }).format(date);
+---
+
+<BaseLayout>
+  <h1>ブログ</h1>
+  <p class="intro">登山や散歩、技術、好きなもの、日々考えたことの記録です。</p>
+  <ol class="post-list">
+    {posts.map((post) => (
+      <li>
+        <article>
+          <time datetime={post.data.publishedAt.toISOString()}>
+            {formatDate(post.data.publishedAt)}
+          </time>
+          <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+          <p>{post.data.description}</p>
+          {post.data.draft && <span class="draft">下書き</span>}
+        </article>
+      </li>
+    ))}
+  </ol>
+</BaseLayout>
