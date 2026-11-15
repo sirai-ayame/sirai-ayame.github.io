@@ -29,6 +29,8 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm test
+      - name: Lint source
+        run: npm run lint
       - name: Check types
         run: npm run check
 

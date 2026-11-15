@@ -14,6 +14,7 @@
 ## 検証
 
 - Vitest で一覧の抽出・並び順をテストする。
+- ESLint の推奨ルールと Astro / TypeScript 向けルールで静的解析する。
 - `astro check` で Astro と TypeScript の型検査を行う。
 - `astro build` で静的生成を確認する。
 
