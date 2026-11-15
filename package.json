@@ -13,7 +13,8 @@
     "lint": "eslint .",
     "new:post": "node scripts/new-post.ts",
     "test": "vitest run src",
-    "test:site": "npm run build && vitest run tests"
+    "test:site": "npm run build && vitest run tests",
+    "verify": "npm run lint && npm test && npm run check && npm run test:site"
   },
   "dependencies": {
     "@astrojs/mdx": "^8.1.6",

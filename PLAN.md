@@ -8,6 +8,7 @@
 - ブログ記事は Astro Content Collections の `src/content/blog/<slug>/index.mdx` に配置し、記事固有の画像・動画なども同じディレクトリにまとめる。
 - 記事内の画像は MDX から相対パスで参照し、動画などは import したURLをHTML要素に渡す。記事本文の画像・動画は表示領域を超えないようにする。
 - `npm run new:post -- <slug> "記事タイトル"` で、既存ファイルを上書きせず `src/content/blog/<slug>/index.mdx` に下書きを作成できるようにする。
+- VS Code のタスクから記事作成、開発サーバー起動、一括検証、ビルド、本番プレビューを実行できるようにする。
 - 記事メタデータは `title`, `description`, `publishedAt` を必須とし、`updatedAt`, `draft` を任意とする。
 - 公開記事一覧は公開日の降順にし、production build では下書きを除外する。
 - `/` は `/blog` へ静的にリダイレクトする。
@@ -29,6 +30,7 @@
 - `astro check` で Astro と TypeScript の型検査を行う。
 - `astro build` で静的生成を確認する。
 - 生成後の HTML / XML を統合テストし、ルーティング、記事導線、メタデータ、404、RSS、サイトマップを検証する。
+- `npm run verify` で Lint、単体テスト、型検査、ビルド統合テストを一括実行する。
 
 ## デプロイ
 

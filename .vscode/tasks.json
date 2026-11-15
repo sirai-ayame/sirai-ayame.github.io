@@ -1,0 +1,76 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Blog: 新しい記事を作成",
+      "type": "process",
+      "command": "npm",
+      "args": [
+        "run",
+        "new:post",
+        "--",
+        "${input:postSlug}",
+        "${input:postTitle}"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      }
+    },
+    {
+      "label": "Blog: 開発サーバーを起動",
+      "type": "npm",
+      "script": "dev",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Blog: すべて検証",
+      "type": "npm",
+      "script": "verify",
+      "group": "test",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      }
+    },
+    {
+      "label": "Blog: ビルド",
+      "type": "npm",
+      "script": "build",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Blog: 本番プレビュー",
+      "type": "npm",
+      "script": "preview",
+      "dependsOn": "Blog: ビルド",
+      "dependsOrder": "sequence",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "postSlug",
+      "type": "promptString",
+      "description": "記事のslug"
+    },
+    {
+      "id": "postTitle",
+      "type": "promptString",
+      "description": "記事タイトル"
+    }
+  ]
+}
