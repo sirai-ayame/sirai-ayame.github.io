@@ -18,6 +18,7 @@
 
 ## 検証
 
+- 開発・記事作成・検証・ビルド・デプロイの手順と確認先は README.md に集約する。
 - Vitest で一覧の抽出・並び順をテストする。
 - ESLint の推奨ルールと Astro / TypeScript 向けルールで静的解析する。
 - `astro check` で Astro と TypeScript の型検査を行う。
